@@ -1,6 +1,3 @@
-//import {useState, useEffect} from "react"; 
-// import backgroundImage from "./images/backgroundImage.jpg"
-// const API_BASE = "http://localhost:5000"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey';

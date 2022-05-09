@@ -56,4 +56,6 @@ const userFormData = new Schema({
     }
 })
 
-module.exports = userFormData; 
+const user = Model("user", userFormData)
+
+module.exports = user; 

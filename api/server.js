@@ -12,7 +12,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/form-data", {
     .then( () => console.log("Connected to DB"))
     .catch(console.error)
 
-const userFormData = require(".model")
+const userFormData = require("./model")
 
 app.use(express.json())
 app.use(cors())
@@ -37,17 +37,26 @@ app.post("/hook", async (req, res) => {
         }
     }
 
-    console.log(results)
+    //test with actual webhook
+    const user = new userFormData({
+        Question1: result[0], 
+        Question2: result[1], 
+        Question3: result[2], 
+        Question4: result[3],
+        Question5: result[4],
+        Question6: result[5],
+        Question7: result[6],
+        Question8: result[7],
+        Question9: result[8],
+        Question10: result[9],
+        Question11: result[10], 
+        Question12: result[11], 
+        Question13: result[12]
+    })
 
-    //initialize user form data schema 
+    user.save()
 
-    //add schema to database 
-
-
-
-
-
-
+    console.log(result)
 
     res.json("Payload processed")
 })

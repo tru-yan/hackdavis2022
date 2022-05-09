@@ -1,3 +1,5 @@
+// const API_BASE = "http://localhost:5000"
+
 function Result(){
     return(
         <div>
