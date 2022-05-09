@@ -1,4 +1,8 @@
 import backgroundImage from "./../images/backgroundImage.jpg"
+import { useNavigate } from "react-router-dom"
+
+
+
 
 function Home() {
 
@@ -7,6 +11,14 @@ function Home() {
       backgroundSize: "cover",
   
     };
+
+    let navigate = useNavigate()
+
+    const handleClick = () =>{
+      navigate("/survey")
+    }
+
+  
   
     return (
       <div className="App">
@@ -20,7 +32,7 @@ function Home() {
                 Heart Association 1 in 10 Americans are at Risk. This app was made with 
                 the intention of promoting heart health awarness. 
               </p>
-              <button className=" bg-red-500 rounded-md px-5 py-3 w-36 text-lg">Take Survey</button>
+              <button className=" bg-red-500 rounded-md px-5 py-3 w-36 text-lg" onClick={handleClick}>Take Survey</button>
             </div>
           </div>
         </div>
