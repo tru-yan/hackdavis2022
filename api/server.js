@@ -3,9 +3,9 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 
 const app = express()
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
-mongoose.connect("mongodb://127.0.0.1:27017/form-data", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/form-data", {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
@@ -60,5 +60,9 @@ app.post("/hook", async (req, res) => {
 
     res.json("Payload processed")
 })
+
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static("./../frontend/build"))
+}
 
 app.listen(PORT, ()=>console.log("Server on started on: http://localhost:" + PORT))
